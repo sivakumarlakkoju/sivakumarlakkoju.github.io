@@ -1,0 +1,21 @@
+/* Shared animation vocabulary used by every page (light "simple" tier). */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity var(--duration-base) var(--ease-out), transform var(--duration-base) var(--ease-out);
+  transition-delay: calc(var(--reveal-i, 0) * 70ms);
+}
+.reveal.is-visible { opacity: 1; transform: translateY(0); }
+
+.hover-lift { transition: transform var(--duration-fast) var(--ease-out), box-shadow var(--duration-fast) var(--ease-out); }
+.hover-lift:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+
+@media (hover: none) {
+  .hover-lift:hover { transform: none; box-shadow: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  .hover-lift:hover { transform: none; }
+}

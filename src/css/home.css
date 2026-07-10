@@ -1,0 +1,26 @@
+/* Home-only: the bio photo next to the intro text. Everything else
+   (header, nav, ambient network, timeline/card styles) is shared with the
+   other pages via base.css. Loaded only by index.html. */
+
+.bio-photo {
+  width: 220px;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  object-fit: cover;
+}
+
+.avatar-fallback.bio-photo {
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+}
+
+.post-content .social-links { margin-top: var(--space-3); }

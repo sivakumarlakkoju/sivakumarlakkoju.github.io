@@ -3,18 +3,24 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
   <title>Siva Kumar Lakkoju | Experience</title>
-  <meta name="description" content="A simple, whitespace theme for academics. Based on [*folio](https://github.com/bogoli/-folio) design.">
+  <meta name="description" content="Work experience of Siva Kumar Lakkoju.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20100%20100%22%3E%3Ctext%20y%3D%22.9em%22%20font-size%3D%2280%22%3E%F0%9F%A5%B2%3C/text%3E%3C/svg%3E">
 
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/animations.css">
 
-
- <!--<link rel="shortcut icon" href="/assets/img/favicon.ico">-->
-
-  <link rel="stylesheet" href="/src/css/main.css">
-  <!--<link rel="canonical" href="/">-->
+  <script>
+    (function () {
+      var saved = localStorage.getItem("theme-preference");
+      var theme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      document.documentElement.setAttribute("data-theme", theme);
+    })();
+  </script>
 </head>
 
 <!-- Google tag (gtag.js) -->
@@ -29,58 +35,86 @@
 
   <body>
 
+    <canvas id="ambient-canvas"></canvas>
+
     <header class="site-header">
+      <div class="wrapper">
+        <span class="site-title"><a href="../index.html">Siva's Home</a></span>
 
-  <div class="wrapper">
-    <span class="site-title">
-
-        <a class="page-link" href="../index.html"><strong>Siva's Home</strong></a>
-    </span>
-
-
-    <nav class="site-nav">
-      <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
-              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
-              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+        <nav class="site-nav">
+          <ul class="nav-links">
+            <li><a class="nav-link" href="edu.html">Education</a></li>
+            <li><a class="nav-link" href="experience.html" aria-current="page">Experience</a></li>
+            <li><a class="nav-link" href="projects.html">Projects</a></li>
+          </ul>
+          <button class="theme-toggle" aria-label="Toggle dark mode">
+            <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>
+            <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button class="nav-toggle" aria-label="Open navigation menu">
+            <svg viewBox="0 0 18 15">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
             </svg>
-          </span>
-        </label>
-
-      <div class="trigger">
-        <a class="page-link" href="../index.html">Home</a>
-        <a class="page-link" href="edu.html">Education</a>
-        <a class="page-link" href=#>Experience</a>
-        <a class="page-link" href="projects.html">Projects</a>
+          </button>
+        </nav>
       </div>
-    </nav>
+    </header>
 
-  </div>
+    <div class="page-content">
+      <div class="wrapper">
+        <div class="post">
 
-</header>
-    <style>
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #f4f4f4;
-            font-family: Arial, sans-serif;
-        }
+          <header class="post-header reveal">
+            <h1 class="post-title">Experience</h1>
+            <h5 class="post-description">Sample entries below &mdash; replace with real roles.</h5>
+          </header>
 
-        .center-text {
-            font-size: 2rem;
-            color: #333;
-        }
-    </style>
-</head>
-<body>
-    <div class="center-text">
-        To be updated...
+          <ol class="timeline reveal-stagger">
+            <!-- PLACEHOLDER: replace with real role -->
+            <li class="timeline-entry">
+              <span class="timeline-date">2023 &ndash; Present</span>
+              <h3>Senior Analyst <span class="tag-placeholder">Sample</span></h3>
+              <div class="org">American Express</div>
+              <ul>
+                <li>Building topic models for complaints analytics to surface emerging customer issues.</li>
+                <li>Partnering with risk &amp; ops teams to turn unstructured text into actionable signals.</li>
+              </ul>
+            </li>
+            <!-- PLACEHOLDER: replace with real role -->
+            <li class="timeline-entry">
+              <span class="timeline-date">2021 &ndash; 2023</span>
+              <h3>Graduate Researcher <span class="tag-placeholder">Sample</span></h3>
+              <div class="org">Indian Statistical Institute, Kolkata</div>
+              <ul>
+                <li>Researched time-and-frequency modeling for irregular multivariate medical time series.</li>
+                <li>Explored deep learning approaches for drug potency prediction on cancer cell lines.</li>
+              </ul>
+            </li>
+            <!-- PLACEHOLDER: replace with real role -->
+            <li class="timeline-entry">
+              <span class="timeline-date">2020 &ndash; 2021</span>
+              <h3>Role Title <span class="tag-placeholder">Sample</span></h3>
+              <div class="org">Company / Organization</div>
+              <ul>
+                <li>Short description of responsibilities and impact.</li>
+              </ul>
+            </li>
+          </ol>
+
+        </div>
+      </div>
     </div>
-</body>
+
+    <footer class="site-footer">
+      © 2026 Siva Kumar Lakkoju.
+    </footer>
+
+    <script src="js/theme.js" defer></script>
+    <script src="js/reveal.js" defer></script>
+    <script src="js/ambient-network.js"></script>
+    <script src="js/subpage-effects.js"></script>
+  </body>
+
 </html>
